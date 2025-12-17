@@ -41,7 +41,7 @@ submitBtn.addEventListener('click', async () => {
         submitBtn.textContent = 'Enviando...';
 
         // Enviar al backend
-        const response = await fetch('https://ubiquitous-broccoli-wr5jx6ww4jw4f5p55-8080.app.github.dev/api/nombre', {
+        const response = await fetch('http://localhost:8080/api/nombre', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
