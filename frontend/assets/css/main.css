@@ -1,0 +1,423 @@
+/* --- VARIABLES GLOBALES (Colores y Fuentes) --- */
+:root {
+    --color-black: #111111;
+    --color-white: #FFFFFF;
+    --color-gray-light: #F4F4F4;
+    --color-text-gray: #666666;
+
+    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+
+    --radius-md: 12px;
+    --radius-sm: 8px;
+
+    --spacing-section: 64px;
+}
+
+/* --- RESET BÁSICO --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-white);
+    color: var(--color-black);
+    line-height: 1.5;
+}
+
+/* --- TIPOGRAFÍA (Títulos y Textos) --- */
+/* Tu equipo solo debe añadir la clase .text-h1 o .text-body */
+
+.text-h1 {
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    margin-bottom: 16px;
+    color: var(--color-black);
+}
+
+.text-h2 {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+    color: var(--color-black);
+}
+
+.text-subtitle {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-text-gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.text-body {
+    font-size: 16px;
+    color: var(--color-text-gray);
+    max-width: 65ch;
+    /* Ancho óptimo de lectura */
+    margin-bottom: 16px;
+}
+
+/* --- BOTONES --- */
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid var(--color-black);
+}
+
+/* Botón Primario (Negro -> Blanco) */
+.btn-primary {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+
+/* Botón Secundario (Blanco -> Negro) */
+.btn-secondary {
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+/* --- CHECKBOX PERSONALIZADO --- */
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-wrapper input {
+    display: none;
+    /* Ocultar el original */
+}
+
+.checkbox-box {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--color-black);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.checkbox-box::after {
+    content: '✓';
+    color: var(--color-white);
+    font-weight: bold;
+    display: none;
+}
+
+/* Estado Checkeado */
+.checkbox-wrapper input:checked+.checkbox-box {
+    background-color: var(--color-black);
+}
+
+.checkbox-wrapper input:checked+.checkbox-box::after {
+    display: block;
+}
+
+/* --- CARTA DE CARACTERÍSTICA (Feature Card) --- */
+.feature-card {
+    background: var(--color-white);
+    border: 1px solid #E5E5E5;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    width: 320px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card__image {
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    object-fit: cover;
+}
+
+.feature-card__content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* --- CARTA DE PRECIO (Pricing) --- */
+.pricing-card {
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    gap: 24px;
+    width: 350px;
+    border: 1px solid #E5E5E5;
+    border-radius: var(--radius-md);
+    background-color: var(--color-white);
+}
+
+/* Modificador: Featured (Negro) */
+.pricing-card--featured {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border-color: var(--color-black);
+    transform: scale(1.05);
+    /* Un poco más grande */
+}
+
+.pricing-price {
+    font-size: 48px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.pricing-price span {
+    font-size: 16px;
+    font-weight: 400;
+    color: #999;
+}
+
+/* Ajustes de color para la tarjeta oscura */
+.pricing-card--featured .text-h2,
+.pricing-card--featured .text-body {
+    color: var(--color-white);
+}
+
+.pricing-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pricing-features li::before {
+    content: '•';
+    margin-right: 8px;
+}
+
+/* =========================================
+   NUEVOS COMPONENTES (Tablas, Inputs, Badges)
+   ========================================= */
+
+/* --- 1. TABLAS (.table) --- */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    /* Para scroll en móviles */
+    margin-bottom: 24px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+    /* Ancho mínimo para que no se rompa */
+}
+
+.table th {
+    text-align: left;
+    padding: 16px;
+    border-bottom: 2px solid var(--color-black);
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.table td {
+    padding: 16px;
+    border-bottom: 1px solid #E5E5E5;
+    font-size: 16px;
+    color: var(--color-text-gray);
+}
+
+/* Alineación especial para números (dinero, deuda) */
+.text-right {
+    text-align: right !important;
+}
+
+.table tr:hover td {
+    background-color: var(--color-gray-light);
+    color: var(--color-black);
+}
+
+/* --- 2. INPUT GROUPS (Formularios) --- */
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 400px;
+}
+
+.form-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-black);
+}
+
+.input-control {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 16px;
+    font-family: var(--font-main);
+    border: 1px solid #CCCCCC;
+    border-radius: var(--radius-sm);
+    outline: none;
+    transition: border-color 0.2s;
+    background: var(--color-white);
+}
+
+.input-control:focus {
+    border-color: var(--color-black);
+}
+
+/* Input Group: Para unir Input + Botón o Select */
+.input-group-wrapper {
+    display: flex;
+    width: 100%;
+}
+
+/* Estilo para cuando hay un botón/select pegado a la derecha */
+.input-group-wrapper .input-control {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+    /* Quitamos borde derecho para unir */
+    flex: 1;
+}
+
+.input-addon-btn,
+.input-addon-select {
+    padding: 0 20px;
+    background-color: var(--color-gray-light);
+    border: 1px solid #CCCCCC;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-family: var(--font-main);
+    color: var(--color-black);
+    transition: background 0.2s;
+}
+
+.input-addon-btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* --- 3. BOTONES DE ESTADO (Toggle Group) --- */
+/* Grupo de botones pegados */
+.toggle-group {
+    display: inline-flex;
+    background-color: var(--color-gray-light);
+    padding: 4px;
+    border-radius: var(--radius-sm);
+    gap: 0;
+}
+
+.toggle-btn {
+    padding: 8px 24px;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 6px;
+    /* Radio interno un poco menor */
+    color: var(--color-text-gray);
+    transition: all 0.2s ease;
+}
+
+/* Estado Activo (Seleccionado) */
+.toggle-btn.active {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    font-weight: 700;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 4. BADGES (Etiquetas de estado) --- */
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 20px;
+    /* Pill shape */
+    letter-spacing: 0.5px;
+    border: 1px solid transparent;
+}
+
+/* Autorizado (Blanco con borde) */
+.badge-authorized {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border-color: var(--color-black);
+}
+
+/* Pendiente (Gris) */
+.badge-pending {
+    background-color: #E0E0E0;
+    color: #555555;
+}
+
+/* Rechazado (Negro) */
+.badge-rejected {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+/* --- Estilos específicos para el Dropdown (Select) --- */
+
+/* Hereda estilos de .input-control pero ajustamos la flecha */
+select.input-control {
+    appearance: none;
+    /* Quita la flecha gris estándar del navegador */
+    -webkit-appearance: none;
+    /* Soporte para Safari/Chrome */
+    cursor: pointer;
+    background-color: var(--color-white);
+
+    /* Agregamos una flecha SVG minimalista (chevron-down) en CSS */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23333333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    /* Posición a la derecha */
+    background-size: 16px;
+    padding-right: 40px;
+    /* Espacio extra a la derecha para no tapar la flecha */
+}
+
+select.input-control:invalid {
+    color: #999;
+    /* Color gris si está seleccionada la opción por defecto (placeholder) */
+}

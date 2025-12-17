@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Componentes (Design System)</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <style>
+        /* Estilos SOLO para este catálogo (para organizar la presentación) */
+        .catalog-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .catalog-section {
+            margin-bottom: 80px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 40px;
+        }
+
+        .catalog-label {
+            font-family: monospace;
+            color: #888;
+            margin-bottom: 20px;
+            display: block;
+            background: #f9f9f9;
+            padding: 5px;
+        }
+
+        .component-grid {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="catalog-container">
+
+        <h1 class="text-h1">Catálogo de UI</h1>
+        <p class="text-body">Guía de estilos visuales. Copia las clases correspondientes para construir nuevas páginas.
+        </p>
+
+        <section class="catalog-section">
+            <span class="catalog-label">Componente: Tipografía</span>
+
+            <span class="text-subtitle">SUBTÍTULO PEQUEÑO (.text-subtitle)</span>
+            <h1 class="text-h1">Título H1 Principal (.text-h1)</h1>
+            <h2 class="text-h2">Título H2 Secundario (.text-h2)</h2>
+            <p class="text-body">
+                Párrafo de cuerpo (.text-body). Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Utiliza esta clase para bloques de texto largos para asegurar una lectura cómoda.
+            </p>
+        </section>
+
+
+        <section class="catalog-section">
+            <span class="catalog-label">Componente: Botones (.btn)</span>
+
+            <div class="component-grid">
+                <div>
+                    <p class="text-body" style="margin-bottom:10px">Primario (.btn-primary)</p>
+                    <a href="#" class="btn btn-primary">Empezar Ahora</a>
+                </div>
+
+                <div>
+                    <p class="text-body" style="margin-bottom:10px">Secundario (.btn-secondary)</p>
+                    <a href="#" class="btn btn-secondary">Leer Más</a>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="catalog-section">
+            <span class="catalog-label">Componente: Checkbox</span>
+
+            <label class="checkbox-wrapper">
+                <input type="checkbox" checked>
+                <div class="checkbox-box"></div>
+                <span class="text-body" style="margin:0;">Acepto los términos</span>
+            </label>
+        </section>
+
+
+        <section class="catalog-section">
+            <span class="catalog-label">Componente: Feature Card (.feature-card)</span>
+
+            <div class="feature-card">
+                <img src="https://picsum.photos/400/300" alt="Demo" class="feature-card__image">
+                <div class="feature-card__content">
+                    <h3 class="text-h2" style="font-size: 24px;">Título Carta</h3>
+                    <p class="text-body" style="font-size: 14px;">Descripción corta de la funcionalidad de la tarjeta.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="catalog-section">
+            <span class="catalog-label">Componente: Pricing Cards</span>
+
+            <div class="component-grid">
+
+                <div class="pricing-card">
+                    <span class="text-subtitle">Estándar</span>
+                    <h3 class="pricing-price">$0 <span>/mes</span></h3>
+                    <p class="text-body">Para empezar.</p>
+                    <ul class="pricing-features text-body">
+                        <li>1 usuario</li>
+                        <li>5 proyectos</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary" style="width:100%">Elegir</a>
+                </div>
+
+                <div class="pricing-card pricing-card--featured">
+                    <span class="text-subtitle" style="color: #ccc;">Pro</span>
+                    <h3 class="pricing-price">$29 <span>/mes</span></h3>
+                    <p class="text-body">Para equipos grandes.</p>
+                    <ul class="pricing-features text-body">
+                        <li>Usuarios ilimitados</li>
+                        <li>Proyectos ilimitados</li>
+                        <li>Soporte VIP</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary"
+                        style="background: white; color: black; border-color: white; width:100%">Elegir</a>
+                </div>
+
+            </div>
+        </section>
+        <section class="catalog-section">
+            <span class="catalog-label">Componente: Tabla de Datos</span>
+
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Estado</th>
+                            <th class="text-right">Deuda Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Juan</td>
+                            <td>Pérez</td>
+                            <td><span class="badge badge-authorized">Autorizado</span></td>
+                            <td class="text-right">$1,200.00</td>
+                        </tr>
+                        <tr>
+                            <td>María</td>
+                            <td>Gómez</td>
+                            <td><span class="badge badge-pending">Pendiente</span></td>
+                            <td class="text-right">$450.50</td>
+                        </tr>
+                        <tr>
+                            <td>Carlos</td>
+                            <td>Ruiz</td>
+                            <td><span class="badge badge-rejected">Rechazado</span></td>
+                            <td class="text-right">$0.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="catalog-section">
+            <span class="catalog-label">Componente: Selección Única (Toggle Group)</span>
+            <p class="text-body" style="font-size:14px; margin-bottom:10px;">
+                Solo una opción puede tener la clase <code>.active</code> a la vez. (Requiere JS para cambiar).
+            </p>
+
+            <div class="toggle-group">
+                <button class="toggle-btn active">Efectivo</button>
+                <button class="toggle-btn">Tarjeta</button>
+                <button class="toggle-btn">Transferencia</button>
+            </div>
+        </section>
+
+        <section class="catalog-section">
+            <span class="catalog-label">Componente: Badges de Estado</span>
+
+            <div style="display: flex; gap: 16px; align-items: center;">
+                <span class="badge badge-authorized">Autorizado</span>
+                <span class="badge badge-pending">Pendiente</span>
+                <span class="badge badge-rejected">Rechazado</span>
+            </div>
+        </section>
+
+        <section class="catalog-section">
+            <span class="catalog-label">Componente: Inputs y Búsquedas</span>
+
+            <div class="form-group">
+                <label class="form-label">Nombre del Cliente</label>
+                <input type="text" class="input-control" placeholder="Ingrese nombre...">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Categoría del Producto</label>
+                <select class="input-control" required>
+                    <option value="" disabled selected hidden>Seleccione una opción...</option>
+                    <option value="1">Electrónica</option>
+                    <option value="2">Hogar y Muebles</option>
+                    <option value="3">Ropa y Accesorios</option>
+                    <option value="4">Deportes</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Monto y Moneda</label>
+                <div class="input-group-wrapper">
+                    <input type="number" class="input-control" placeholder="Ingrese monto...">
+                    <select class="input-addon-select">
+                        <option>USD</option>
+                        <option>EUR</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Búsqueda Global</label>
+                <div class="input-group-wrapper">
+                    <input type="text" class="input-control" placeholder="Buscar producto...">
+                    <button class="input-addon-btn">Buscar</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</body>
+
+</html>
