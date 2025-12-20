@@ -1,0 +1,15 @@
+:root {
+    /* Colores */
+    --color-black: #111111;
+    --color-white: #FFFFFF;
+    --color-gray-light: #F4F4F4;
+    --color-text-gray: #666666;
+
+    /* Fuentes */
+    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+
+    /* Bordes y Espaciado */
+    --radius-md: 12px;
+    --radius-sm: 8px;
+    --spacing-section: 64px;
+}

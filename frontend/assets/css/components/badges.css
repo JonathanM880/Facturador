@@ -1,0 +1,26 @@
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    border: 1px solid transparent;
+}
+
+.badge-authorized {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border-color: var(--color-black);
+}
+
+.badge-pending {
+    background-color: #E0E0E0;
+    color: #555555;
+}
+
+.badge-rejected {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
