@@ -1,4 +1,9 @@
 {
     "java.compile.nullAnalysis.mode": "automatic",
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "liveServer.settings.root": "/frontend",
+    "liveServer.settings.file": "index.html",
+    "liveServer.settings.ignoreFiles": [
+        "backend/**"
+    ]
 }
