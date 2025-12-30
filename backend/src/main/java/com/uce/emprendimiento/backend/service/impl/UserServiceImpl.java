@@ -5,6 +5,7 @@ import com.uce.emprendimiento.backend.dto.response.AuthResponse;
 import com.uce.emprendimiento.backend.entity.User;
 import com.uce.emprendimiento.backend.repository.UserRepository;
 import com.uce.emprendimiento.backend.service.UserService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public AuthResponse register(RegisterRequest request) {
@@ -26,7 +30,7 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         user.setCedula(request.getCedula());
         user.setCorreo(request.getCorreo());
-        user.setContrasena(request.getContrasena()); // In a real app, hash this!
+        user.setContrasena(passwordEncoder.encode(request.getContrasena()));
 
         userRepository.save(user);
 
